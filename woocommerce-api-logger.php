@@ -3,7 +3,7 @@
 /**
  * Plugin Name: WooCommerce API Logger
  * Description: Логирует входящие запросы и ответы WooCommerce REST API (v3).
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Viking01
  */
 
