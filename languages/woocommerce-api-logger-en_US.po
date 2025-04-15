@@ -2,55 +2,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce API Logger\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: ru\n"
+"Language: en_US\n"
 
 msgid "Включить логирование"
-msgstr "Включить логирование"
+msgstr "Enable logging"
 
 msgid "Срок хранения (дней)"
-msgstr "Срок хранения (дней)"
+msgstr "Retention period (days)"
 
 msgid "Интервал автообновления (сек)"
-msgstr "Интервал автообновления (сек)"
+msgstr "Auto-refresh interval (sec)"
 
 msgid "Сохранить изменения"
-msgstr "Сохранить изменения"
+msgstr "Save changes"
 
 msgid "Настройки логгера Woo API"
-msgstr "Настройки логгера Woo API"
+msgstr "Woo API Logger Settings"
 
 msgid "Время"
-msgstr "Время"
+msgstr "Time"
 
 msgid "Метод"
-msgstr "Метод"
+msgstr "Method"
 
 msgid "Маршрут"
-msgstr "Маршрут"
+msgstr "Route"
 
 msgid "Длительность"
-msgstr "Длительность"
+msgstr "Duration"
 
 msgid "Request"
-msgstr "Запрос"
+msgstr "Request"
 
 msgid "Response"
-msgstr "Ответ"
+msgstr "Response"
 
 msgid "Удалить"
-msgstr "Удалить"
+msgstr "Delete"
 
 msgid "Файл не найден."
-msgstr "Файл не найден."
+msgstr "File not found."
 
 msgid "Директория не найдена."
-msgstr "Директория не найдена."
+msgstr "Directory not found."
 
 msgid "Удалить лог и связанные файлы?"
-msgstr "Удалить лог и связанные файлы?"
+msgstr "Delete log and related files?"
 
 msgid "Ошибка загрузки:"
-msgstr "Ошибка загрузки:"
+msgstr "Load error:"
 
 msgid "Ошибка удаления:"
-msgstr "Ошибка удаления:"
+msgstr "Delete error:"

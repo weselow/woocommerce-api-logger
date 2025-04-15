@@ -8,7 +8,7 @@ class LoggerCleaner
 
         if (!file_exists($logDir)) return;
 
-        $retentionDays = defined('WOO_API_LOGGER_RETENTION_DAYS') ? WOO_API_LOGGER_RETENTION_DAYS : 30;
+        $retentionDays = get_option('woo_api_logger_retention_days', 30);
         $now = time();
 
         foreach (glob($logDir . '/*') as $folder) {

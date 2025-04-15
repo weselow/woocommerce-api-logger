@@ -7,9 +7,8 @@ class LoggerService
 
     public static function capture_request($result, $server, $request)
     {
-        if (strpos($request->get_route(), '/wc/v3/') === false) {
-            return $result;
-        }
+        if (get_option('woo_api_logger_enabled', '1') !== '1') return $result;
+        if (strpos($request->get_route(), '/wc/v3/') === false) return $result;
 
         self::$requestStart = microtime(true);
 

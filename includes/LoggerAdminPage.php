@@ -13,7 +13,7 @@ class LoggerAdminPage
         usort($folders, fn($a, $b) => filemtime($b) <=> filemtime($a));
 
         echo '<div class="wrap"><h1>Woo API Logs</h1>';
-        echo '<table class="widefat fixed striped">';
+        echo '<table class="widefat fixed striped woocommerce-api-log-table">';
         echo '<thead><tr>
             <th>Время</th><th>Метод</th><th>Маршрут</th><th>Длительность</th>
             <th>Request</th><th>Response</th><th>Удалить</th>
@@ -29,17 +29,17 @@ class LoggerAdminPage
 
             if (!$request) continue;
 
-            echo '<tr>';
-           
             $ts = $request['timestamp'] ?? '';
             $date = DateTime::createFromFormat('Y-m-d\TH_i_s\Z', $ts, new DateTimeZone('UTC'));
             if ($date) {
                 $date->setTimezone(wp_timezone());
-                echo '<td>' . esc_html($date->format('d.m.Y H:i:s')) . '</td>';
+                $formatted = $date->format('d.m.Y H:i:s');
             } else {
-                echo '<td>' . esc_html($ts) . '</td>';
+                $formatted = $ts;
             }
 
+            echo '<tr>';
+            echo '<td>' . esc_html($formatted) . '</td>';
             echo '<td>' . esc_html($request['method'] ?? '') . '</td>';
             echo '<td>' . esc_html($request['route'] ?? '') . '</td>';
             echo '<td>' . esc_html($response['duration_sec'] ?? '-') . ' сек</td>';
@@ -88,37 +88,36 @@ class LoggerAdminPage
     }
 
     public static function ajax_list_dirs()
-{
-    check_ajax_referer('woo_api_logger_nonce', 'nonce');
+    {
+        check_ajax_referer('woo_api_logger_nonce', 'nonce');
 
-    $baseDir = WOO_API_LOGGER_LOG_DIR;
-    if (!file_exists($baseDir)) wp_send_json_success([]);
+        $baseDir = WOO_API_LOGGER_LOG_DIR;
+        if (!file_exists($baseDir)) wp_send_json_success([]);
 
-    $dirs = array_filter(glob($baseDir . '/*'), 'is_dir');
-    $result = [];
+        $dirs = array_filter(glob($baseDir . '/*'), 'is_dir');
+        $result = [];
 
-    foreach ($dirs as $dir) {
-        $folder = basename($dir);
-        $request = @json_decode(file_get_contents($dir . '/request.json'), true);
-        $response = @json_decode(file_get_contents($dir . '/response.json'), true);
+        foreach ($dirs as $dir) {
+            $folder = basename($dir);
+            $request = @json_decode(file_get_contents($dir . '/request.json'), true);
+            $response = @json_decode(file_get_contents($dir . '/response.json'), true);
 
-        if (!$request) continue;
+            if (!$request) continue;
 
-        $ts = $request['timestamp'] ?? '';
-        $method = $request['method'] ?? '';
-        $route = $request['route'] ?? '';
-        $duration = $response['duration_sec'] ?? '-';
+            $ts = $request['timestamp'] ?? '';
+            $method = $request['method'] ?? '';
+            $route = $request['route'] ?? '';
+            $duration = $response['duration_sec'] ?? '-';
 
-        $result[] = [
-            'folder' => $folder,
-            'timestamp' => $ts,
-            'method' => $method,
-            'route' => $route,
-            'duration' => $duration,
-        ];
+            $result[] = [
+                'folder' => $folder,
+                'timestamp' => $ts,
+                'method' => $method,
+                'route' => $route,
+                'duration' => $duration,
+            ];
+        }
+
+        wp_send_json_success($result);
     }
-
-    wp_send_json_success($result);
-}
-
 }

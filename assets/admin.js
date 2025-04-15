@@ -91,6 +91,6 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    // Запускаем обновление каждые 30 секунд
-    setInterval(reloadLogTable, 30000);
+    // Запускаем обновление каждые X сек, заданные в настройках
+    setInterval(reloadLogTable, (WooApiLoggerAjax.refresh_interval || 30) * 1000);
 });
