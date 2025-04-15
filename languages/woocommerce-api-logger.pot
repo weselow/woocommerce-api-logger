@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce API Logger\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: \n"
+
+#: includes/LoggerAdminPage.php:17
+msgid "Время"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:18
+msgid "Метод"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:19
+msgid "Маршрут"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:20
+msgid "Длительность"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:21
+msgid "Request"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:22
+msgid "Response"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:23
+msgid "Удалить"
+msgstr ""
+
+#: includes/LoggerAdminPage.php:75
+msgid "Файл не найден."
+msgstr ""
+
+#: includes/LoggerAdminPage.php:95
+msgid "Директория не найдена."
+msgstr ""
+
+#: assets/admin.js
+msgid "Удалить лог и связанные файлы?"
+msgstr ""
+
+#: assets/admin.js
+msgid "Ошибка загрузки:"
+msgstr ""
+
+#: assets/admin.js
+msgid "Ошибка удаления:"
+msgstr ""
